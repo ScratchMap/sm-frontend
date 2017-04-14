@@ -1,7 +1,5 @@
 {
-  "name": "my-app",
-  "version": "0.0.0",
-  "license": "MIT",
+  "name": "scratch-map-frontend",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
