@@ -7,14 +7,14 @@ import { AppRoutingModule }         from './routing/routing.module'
 import { AppComponent }             from './app.component';
 import { PlaceDetailsModule }       from './pages/place-details/place-details.module';
 import { PlacesListModule }         from './pages/places-list/places-list.module';
+import { MapModule }                from './wigets/map/map.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-
-
 ],
   imports: [
+    MapModule,
     BrowserModule,
     FormsModule,
     HttpModule,

@@ -1,4 +1,6 @@
 import { NgModule }                 from '@angular/core';
+import { CommonModule }             from '@angular/common';
+import { RouterModule }           from '@angular/router';
 
 import { PlacesListComponent }      from './places-list.component';
 
@@ -6,7 +8,10 @@ import { PlacesListComponent }      from './places-list.component';
   declarations: [
     PlacesListComponent
   ],
-  imports: [],
+  imports: [
+    CommonModule,
+    RouterModule
+  ],
   exports: [
     PlacesListComponent
   ]

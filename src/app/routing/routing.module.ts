@@ -1,11 +1,11 @@
 import { NgModule }               from '@angular/core';
 import { RouterModule }           from '@angular/router';
-import { Routes}                  from '@angular/router';
+import { Routes }                 from '@angular/router';
 
 import { AppComponent }           from '../app.component';
 import { PlaceDetailsComponent }  from '../pages/place-details/place-details.component';
-import { PlacesListComponent }       from '../pages/places-list/places-list.component';
-
+import { PlacesListComponent }    from '../pages/places-list/places-list.component';
+import { MapComponent }           from '../wigets/map/map.component';
 
 
 const routes: Routes = [
