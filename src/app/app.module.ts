@@ -8,12 +8,14 @@ import { AppComponent }             from './app.component';
 import { PlaceDetailsModule }       from './pages/place-details/place-details.module';
 import { PlacesListModule }         from './pages/places-list/places-list.module';
 import { MapModule }                from './wigets/map/map.module';
+import { PostModule }               from './pages/post/post.module';
 
 @NgModule({
   declarations: [
     AppComponent,
 ],
   imports: [
+    PostModule,
     MapModule,
     BrowserModule,
     FormsModule,
