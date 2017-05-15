@@ -1,3 +1,5 @@
-<h1>
-  {{title}}
-</h1>
+<ul>
+  <li *ngFor="let place of places">
+      <a [routerLink]="['/places', place]">{{ place }}</a>
+  </li>
+</ul>
