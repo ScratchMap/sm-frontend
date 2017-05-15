@@ -1,6 +1,7 @@
 import { Component }                                        from '@angular/core';
 import { ActivatedRoute }                                   from '@angular/router';
 import { Location }                                         from '@angular/common';
+import { CommonModule }                                     from '@angular/common';
 
 @Component({
   selector: 'post',
@@ -8,9 +9,24 @@ import { Location }                                         from '@angular/commo
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent {
-  data = 'ITS MAST BE POST'
   postid: string;
   private subscription: any;
+
+  response = {
+    postid: 'post1',
+    imgs: [
+      '../../../assets/rotator_imgs/1.jpg',
+      '../../../assets/rotator_imgs/2.jpg',
+      '../../../assets/rotator_imgs/3.jpg',
+      '../../../assets/rotator_imgs/4.jpg'
+    ],
+    postData: 'TOP FASHION RUNWAY PHOTOGRAPHY BASED IN THE MIDDLE EAST & EUROPE',
+    metaData : {
+      place: 'paris',
+      tags: ['paris', 'france', 'travel'],
+      geo : { lat: -25.363, lng: 131.044 }
+      }
+  };
 
   constructor(
       private route: ActivatedRoute,

@@ -1,4 +1,25 @@
-<h1>
+<h3>
   {{postid}}
-</h1>
-<button type="click" class="btn btn-primary" (click)="goBack()" >Back</button>
+</h3>
+<rotator [imgs]="response.imgs"></rotator>
+<h3>
+  <div class="metadata">
+      <a [routerLink]="['/places', response.metaData.place]">{{response.metaData.place}}</a>
+    {{response.metaData.place}}
+  </div>
+  <div class="metadata">
+    <ul>
+      <li *ngFor="let tag of response.metaData.tags">
+        <p>{{ tag }}</p>
+      </li>
+    </ul>
+  </div>
+  <div class="metadata">
+    {{response.metaData.geo.lat}} {{response.metaData.geo.lng}}
+  </div>
+</h3>
+<h3>
+  {{response.postData}}
+</h3>
+
+<button type="click" class="btn btn-primary" (click)="goBack()">Back</button>

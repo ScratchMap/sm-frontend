@@ -1,12 +1,20 @@
 import { NgModule }                 from '@angular/core';
+import { CommonModule }             from '@angular/common';
+import { RouterModule }             from '@angular/router';
 
 import { PostComponent }            from './post.component';
+import { RotatorModule }            from './rotator/rotator.module';
+
 
 @NgModule({
   declarations: [
     PostComponent
   ],
-  imports: [],
+  imports: [
+    RotatorModule,
+    CommonModule,
+    RouterModule
+  ],
   exports: [
     PostComponent
   ]

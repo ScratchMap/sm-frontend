@@ -1,5 +1,5 @@
 import { Component }                                        from '@angular/core';
-import { ActivatedRoute }                           from '@angular/router';
+import { ActivatedRoute }                                   from '@angular/router';
 import { Location }                                         from '@angular/common';
 
 @Component({
@@ -9,6 +9,8 @@ import { Location }                                         from '@angular/commo
 })
 export class PlaceDetailsComponent {
   id: string;
+  posts: Array<string>;
+
   private subscription: any;
 
   constructor(
@@ -20,6 +22,8 @@ export class PlaceDetailsComponent {
         this.id = params['id'];
       },
     );
+
+    this.posts = [ 'post1', 'post2' ];
   }
 
   goBack() {
