@@ -3,6 +3,8 @@ import { ActivatedRoute }                                   from '@angular/route
 import { Location }                                         from '@angular/common';
 import { CommonModule }                                     from '@angular/common';
 
+import { PostService }                                     from '../../services/post.service';
+
 @Component({
   selector: 'post',
   templateUrl: './post.component.html',
@@ -11,27 +13,14 @@ import { CommonModule }                                     from '@angular/commo
 export class PostComponent {
   postid: string;
   private subscription: any;
-
-  response = {
-    postid: 'post1',
-    imgs: [
-      '../../../assets/rotator_imgs/1.jpg',
-      '../../../assets/rotator_imgs/2.jpg',
-      '../../../assets/rotator_imgs/3.jpg',
-      '../../../assets/rotator_imgs/4.jpg'
-    ],
-    postData: 'TOP FASHION RUNWAY PHOTOGRAPHY BASED IN THE MIDDLE EAST & EUROPE',
-    metaData : {
-      place: 'paris',
-      tags: ['paris', 'france', 'travel'],
-      geo : { lat: -25.363, lng: 131.044 }
-      }
-  };
+  private response: any;
 
   constructor(
       private route: ActivatedRoute,
-      private location: Location
+      private location: Location,
+      private postService: PostService
     ) {
+    this.response = postService.getPost ();
     this.subscription = this.route.params.subscribe(
       ( params: any ) => {
         this.postid = params['postid'];

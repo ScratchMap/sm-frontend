@@ -1,25 +1,13 @@
-<h3>
-  {{postid}}
-</h3>
+{{postid}}
 <rotator [imgs]="response.imgs"></rotator>
-<h3>
-  <div class="metadata">
-      <a [routerLink]="['/places', response.metaData.place]">{{response.metaData.place}}</a>
-    {{response.metaData.place}}
-  </div>
-  <div class="metadata">
-    <ul>
-      <li *ngFor="let tag of response.metaData.tags">
-        <p>{{ tag }}</p>
-      </li>
-    </ul>
-  </div>
-  <div class="metadata">
-    {{response.metaData.geo.lat}} {{response.metaData.geo.lng}}
-  </div>
-</h3>
-<h3>
-  {{response.postData}}
-</h3>
-
+    <a [routerLink]="['/places', response.metaData.place]">{{response.metaData.place}}</a>
+<div class="metadata">
+  <ul class="hr">
+    <li *ngFor="let tag of response.metaData.tags">
+      {{ tag }}
+    </li>
+  </ul>
+  {{response.metaData.geo.lat}} {{response.metaData.geo.lng}} {{response.metaData.data}}
+<div>
+{{response.postData}}
 <button type="click" class="btn btn-primary" (click)="goBack()">Back</button>
