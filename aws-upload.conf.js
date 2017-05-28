@@ -3,6 +3,7 @@ module.exports = {
   bucketName: 'sm-f-dev',
   patterns: [
     'dist/*',
-    'index.html'
+    'index.html',
+    'assets/**'
   ]
 };

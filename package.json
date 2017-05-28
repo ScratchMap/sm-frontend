@@ -8,7 +8,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "deploy": "s3-upload",
-    "predeploy": "cp src/index-prepared.html index.html",
+    "predeploy": "cp src/index-prepared.html index.html && cp -rf src/assets/ ./assets", 
     "postdeploy": "echo deployed completed"
   },
   "private": true,

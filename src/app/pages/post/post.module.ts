@@ -2,18 +2,21 @@ import { NgModule }                 from '@angular/core';
 import { CommonModule }             from '@angular/common';
 import { RouterModule }             from '@angular/router';
 
-import { MapComponent }             from './map.component';
+import { PostComponent }            from './post.component';
+import { RotatorModule }            from './rotator/rotator.module';
+
 
 @NgModule({
   declarations: [
-    MapComponent
+    PostComponent
   ],
   imports: [
+    RotatorModule,
     CommonModule,
     RouterModule
   ],
   exports: [
-    MapComponent
+    PostComponent
   ]
 })
-export class MapModule  { }
+export class PostModule { }

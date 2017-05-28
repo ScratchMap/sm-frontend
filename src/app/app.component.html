@@ -1,7 +1,9 @@
-<h1>
-  {{title}}
-</h1>
-<a routerLink="/places" routerLinkActive="active">Places</a>
-<a [routerLink]="['/places', 'paris']">Paris</a>
-<a [routerLink]="['/places', 'berlin']">Berlin</a>
-<router-outlet></router-outlet>
+<map></map>
+<div class='content' >
+  <h1>
+    <a routerLink="/places" routerLinkActive="active">Places</a>
+  </h1>
+  <h3>
+    <router-outlet></router-outlet>
+  </h3>
+</div>

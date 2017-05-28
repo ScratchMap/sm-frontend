@@ -1,0 +1,13 @@
+{{postid}}
+<rotator [imgs]="response.imgs"></rotator>
+    <a [routerLink]="['/places', response.metaData.place]">{{response.metaData.place}}</a>
+<div class="metadata">
+  <ul class="hr">
+    <li *ngFor="let tag of response.metaData.tags">
+      {{ tag }}
+    </li>
+  </ul>
+  {{response.metaData.geo.lat}} {{response.metaData.geo.lng}} {{response.metaData.data}}
+<div>
+{{response.postData}}
+<button type="click" class="btn btn-primary" (click)="goBack()">Back</button>

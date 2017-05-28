@@ -1,19 +1,19 @@
 import { NgModule }                 from '@angular/core';
 import { CommonModule }             from '@angular/common';
-import { RouterModule }           from '@angular/router';
+import { RouterModule }             from '@angular/router';
 
-import { PlacesListComponent }      from './places-list.component';
+import { RotatorComponent }         from './rotator.component';
 
 @NgModule({
   declarations: [
-    PlacesListComponent
+    RotatorComponent
   ],
   imports: [
     CommonModule,
     RouterModule
   ],
   exports: [
-    PlacesListComponent
+    RotatorComponent
   ]
 })
-export class PlacesListModule { }
+export class RotatorModule { }

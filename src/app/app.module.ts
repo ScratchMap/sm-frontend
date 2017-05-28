@@ -7,14 +7,19 @@ import { AppRoutingModule }         from './routing/routing.module'
 import { AppComponent }             from './app.component';
 import { PlaceDetailsModule }       from './pages/place-details/place-details.module';
 import { PlacesListModule }         from './pages/places-list/places-list.module';
+import { MapModule }                from './wigets/map/map.module';
+import { PostModule }               from './pages/post/post.module';
+import { RotatorModule }            from './pages/post/rotator/rotator.module';
+import { PostService }              from './services/post.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-
-
 ],
   imports: [
+    RotatorModule,
+    PostModule,
+    MapModule,
     BrowserModule,
     FormsModule,
     HttpModule,
@@ -22,7 +27,7 @@ import { PlacesListModule }         from './pages/places-list/places-list.module
     PlacesListModule,
     PlaceDetailsModule
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
