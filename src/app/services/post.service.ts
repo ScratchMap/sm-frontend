@@ -1,4 +1,8 @@
 import { Injectable }                       from '@angular/core';
+import { Http }                             from '@angular/http';
+
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 
@@ -18,9 +22,25 @@ export class PostService {
             geo : { lat: -25.363, lng: 131.044 },
             data : '21.01.2114'
       }
+  };
+
+  constructor ( private http: Http ) {
+
   }
 
   getPost() {
-      return this.post;
+    return this.http.get( 'https://stark-reaches-32859.herokuapp.com/hello?name=Miron&surname=Zabolotnev' )
+      .toPromise()
+      .then(response => response.json())
+      .catch(err => console.log(err));
+  }
+
+  getPost2() {
+    return this.http.get( 'https://stark-reaches-32859.herokuapp.com/hello?name=Miron&surname=Zabolotnev' )
+      .map(response => response.json());
+  }
+
+  getPost3() {
+    return this.post;
   }
 }

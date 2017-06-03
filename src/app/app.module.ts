@@ -11,6 +11,8 @@ import { MapModule }                from './wigets/map/map.module';
 import { PostModule }               from './pages/post/post.module';
 import { RotatorModule }            from './pages/post/rotator/rotator.module';
 import { PostService }              from './services/post.service';
+import { SendDataService}           from './services/sendData.service';
+import { RegistrationModule }       from './pages/registration/registration.module';
 
 @NgModule({
   declarations: [
@@ -25,9 +27,10 @@ import { PostService }              from './services/post.service';
     HttpModule,
     AppRoutingModule,
     PlacesListModule,
-    PlaceDetailsModule
+    PlaceDetailsModule,
+    RegistrationModule
   ],
-  providers: [PostService],
+  providers: [PostService, SendDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
