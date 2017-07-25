@@ -1,0 +1,32 @@
+.container {
+  margin-top:2%;
+  width: 320px;
+}
+
+.title {
+  text-align: center;
+  color:black;
+  vertical-align: middle;
+  font-size: 90%;
+}
+
+.form-group {
+  display: block;
+  margin: 20px;
+   color:black;
+   text-align:auto;
+}
+.form-control {
+  position: absolute;
+  left: 130px;
+  margin: 5px 50 px;
+  display: inline-block;
+  width: 200px
+}
+
+#back {
+  position: auto;
+  margin-top:2%;
+  color:black;
+  background-color: white;
+}

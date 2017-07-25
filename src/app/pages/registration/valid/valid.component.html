@@ -1,0 +1,7 @@
+<div [hidden]="formName.valid || formName.pristine || formName.errors==null || !formName.errors.minlength" class="alert alert-danger">
+   Too short! (minimum 4 characters).
+</div>
+<div [hidden]="formName.valid ||formName.pristine || formName.errors==null || !formName.errors.validateEmail" class="alert alert-danger">
+   Email not valid!Use  "**@**".
+</div>
+<div *ngIf="formName.dirty && formName.errors==null" class="alert alert-success" >Success!</div>

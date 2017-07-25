@@ -8,7 +8,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "deploy": "s3-upload",
-    "predeploy": "cp src/index-prepared.html index.html",
+    "predeploy": "cp src/index-prepared.html index.html && cp -rf src/assets/ ./assets",
     "postdeploy": "echo deployed completed"
   },
   "private": true,
@@ -21,8 +21,11 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "angular2-froala-wysiwyg": "^2.6.0",
+    "angular2-google-maps": "^0.17.0",
     "core-js": "^2.4.1",
     "rxjs": "^5.1.0",
+    "tinymce": "^4.6.4",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
