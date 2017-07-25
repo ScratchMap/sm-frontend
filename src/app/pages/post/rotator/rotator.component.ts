@@ -25,17 +25,5 @@ export class RotatorComponent implements OnInit {
       width: '100px',
       height: '100px'
     }
-
-
-
-    // var big = '500', small='100';
-    //     if(#img == big)
-    //     {
-    //
-    //     }
-    //     else
-    //     {
-    //
-    //     }
   }
 }

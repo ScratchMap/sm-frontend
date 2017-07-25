@@ -1,4 +1,4 @@
-import { Component }                from '@angular/core';
+import { Component, Output }        from '@angular/core';
 import { ActivatedRoute }           from '@angular/router';
 import { CommonModule }             from '@angular/common';
 import { Location }                 from '@angular/common';
@@ -6,7 +6,7 @@ import { FormGroup,
          FormControl,
          Validators }                from '@angular/forms';
 
-import { SendDataService }           from '../../services/sendData.service';
+import { UserService }           from '../../services/user.service';
 
 @Component({
   selector: 'registration',
@@ -14,22 +14,21 @@ import { SendDataService }           from '../../services/sendData.service';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent {
-  title1 = 'its must be the registration form';
+  @Output()
   registrationForm: FormGroup;
+  success: boolean;
+  public token: string;
 
   constructor(
       private location: Location,
-      private sendDataService: SendDataService
+      private userService: UserService
     ) {
       this.registrationForm = new FormGroup({
         name: new FormControl('', Validators.compose([
                                   Validators.required,
                                   Validators.minLength(4)
                                 ])),
-        email: new FormControl('', Validators.compose([
-                                   Validators.required,
-                                   Validators.minLength(4)
-                                ])),
+        email: new FormControl('',  this.validateEmail ),
         password: new FormControl('', Validators.compose([
                                    Validators.required,
                                    Validators.minLength(4)
@@ -40,13 +39,33 @@ export class RegistrationComponent {
   goBack() {
     this.location.back();
   }
+
   submitForm() {
-    console.log(this.registrationForm);
-    this.sendDataService.sendData(this.registrationForm.value)
+    console.log(this.registrationForm.value);
+    this.userService.sendRegistrationData(this.registrationForm.value)
       .subscribe(
-        (response) => console.log(response),
-        (err) => console.error(err),
-        () => console.log('done')
+        (response) => {
+           console.log(response);
+           this.token = response.auth_token;
+           console.log(this.token);
+          localStorage.setItem('currentUser', JSON.stringify({ username: this.registrationForm.value.name, token: this.token }));
+         },
+        (err) => {
+          console.error(err);
+          this.success = false;
+        },
+        () => this.success = true
+
       );
   }
+
+  validateEmail(email: FormControl) {
+    const CHECK = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+    return CHECK.test(email.value) ? null : {
+    validateEmail: {
+      valid: false
+      }
+    };
+  }
+
 }

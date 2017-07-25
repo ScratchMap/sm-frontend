@@ -1,0 +1,22 @@
+<!-- <div *ngIf="isAuthorized$ | async" >
+   User page!.
+</div> -->
+<div *ngIf="this.userService.token" >
+   User page!.
+</div>
+<div *ngIf="this.user" >
+  <div>
+   {{this.user.user_id}}
+   {{this.user.email}}
+   {{this.user.name}}
+ </div>
+ <div>
+   {{this.user.name}}'s posts:
+   <ul class="list" style="list-style-image: url('/../../assets/marker-list2.png');">
+     <li *ngFor="let post of user_posts">
+       <a [routerLink]="['/places', '/', post.title]">{{ post.title }}</a>
+     </li>
+   </ul>
+
+</div>
+</div>

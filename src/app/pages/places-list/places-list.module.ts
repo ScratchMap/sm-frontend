@@ -9,6 +9,7 @@ import { PlacesListComponent }      from './places-list.component';
     PlacesListComponent
   ],
   imports: [
+
     CommonModule,
     RouterModule
   ],

@@ -1,12 +1,15 @@
 <map></map>
+<div class="user">
+  <user></user>
+</div>
+
+
 <div class='content' >
-  <h1>
-    <a routerLink="/places" routerLinkActive="active">Places</a>
-  </h1>
-  <h1>
-    <a routerLink="/registration" routerLinkActive="active">Registration</a>
-  </h1>
-  <h3>
-    <router-outlet></router-outlet>
-  </h3>
+    <div class="leftcol">
+      <a routerLink="/places" routerLinkActive="active" class="menu">Places</a>
+      <a routerLink="/registration" routerLinkActive="active" class="menu">Registration</a>
+      <a routerLink="/authorization" routerLinkActive="active" class="menu">Authorization</a>
+      <a routerLink="/add-post" routerLinkActive="active" class="menu">Create new post</a>
+      <router-outlet></router-outlet>
+    <div>
 </div>

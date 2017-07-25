@@ -1,46 +1,61 @@
-import { Injectable }                       from '@angular/core';
-import { Http }                             from '@angular/http';
-
+import { Injectable }             from '@angular/core';
+import { Http,
+         Response,
+         Headers,
+         URLSearchParams,
+         RequestOptions
+    }                             from '@angular/http';
+import { Observable }             from 'rxjs';
+import { environment }            from './../../environments/environment'
+import { StateService }            from '../services/state.service';
+import { UserService }            from '../services/user.service';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 
 export class PostService {
-  post = {
-          postid: 'post1',
-          imgs: [
-            '../../../assets/rotator_imgs/1.jpg',
-            '../../../assets/rotator_imgs/2.jpg',
-            '../../../assets/rotator_imgs/3.jpg',
-            '../../../assets/rotator_imgs/4.jpg'
-          ],
-          postData: 'TOP FASHION RUNWAY PHOTOGRAPHY BASED IN THE MIDDLE EAST & EUROPE',
-          metaData : {
-            place: 'paris',
-            tags: ['paris', 'france', 'travel'],
-            geo : { lat: -25.363, lng: 131.044 },
-            data : '21.01.2114'
-      }
-  };
+geo: object;
 
-  constructor ( private http: Http ) {
+
+  constructor (
+     private http: Http,
+     private userService: UserService,
+
+    ) {
 
   }
 
-  getPost() {
-    return this.http.get( 'https://stark-reaches-32859.herokuapp.com/hello?name=Miron&surname=Zabolotnev' )
-      .toPromise()
-      .then(response => response.json())
-      .catch(err => console.log(err));
-  }
+  getAllPosts() {
+    return this.http.get( environment.BASE_URL + 'posts')
+                    .map((res: Response) => res.json());
+    }
 
-  getPost2() {
-    return this.http.get( 'https://stark-reaches-32859.herokuapp.com/hello?name=Miron&surname=Zabolotnev' )
-      .map(response => response.json());
-  }
+  getPostById(id) {
+    return this.http.get( environment.BASE_URL + 'posts?post_id=' + id)
+                      .map((res: Response) => res.json());
+    }
 
-  getPost3() {
-    return this.post;
-  }
+  getUserPosts() {
+    let headers = new Headers({
+      'Authorization': this.userService.token,
+      'Content-type': 'application/json'
+     });
+    let options = new RequestOptions({ headers: headers });
+    console.log(options)
+    return this.http.get( environment.BASE_URL + 'user/posts', options)
+                    .map((res: Response) => res.json());
+    }
+
+  sendPostData(data: any) {
+    let headers = new Headers({
+      'Authorization': this.userService.token,
+      'Content-type': 'application/json'
+     });
+    console.log('headers', headers);
+    let options = new RequestOptions({ headers: headers });
+    console.log(options);
+    return this.http.post(environment.BASE_URL + 'user/posts', data, options)
+      .map((res: Response) => res.json());
+    }
 }

@@ -1,6 +1,7 @@
-<ul>
-  <li *ngFor="let place of places">
-      <a [routerLink]="['/places', place]">{{ place }}</a>
+<ul class="list" style="list-style-image: url('/../../assets/marker-list2.png');">
+  <li *ngFor="let place of places2">
+      <a [routerLink]="['/places', place.id]">{{ place.title }}</a>
   </li>
 </ul>
-<button type="click" class="btn btn-primary" (click)="goBack()" >Back</button>
+
+<button type="click" id=back class="btn btn-primary" (click)="goBack()" >Back</button>
