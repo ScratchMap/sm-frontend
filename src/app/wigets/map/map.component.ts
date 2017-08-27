@@ -22,7 +22,6 @@ export class MapComponent implements OnInit {
   public posts: Array<any>
   markers: marker[] = [];
   public newMarker: object;
-  // marker: any;
   content: any;
   index: any;
   private subscription: any;
@@ -56,7 +55,6 @@ constructor(
          },
          () => {}
       );
-
   }
 
   ngOnInit() {
@@ -73,8 +71,8 @@ constructor(
       console.log('ID!!!', this.index);
     };
 
-    mapClicked($event: any) {
-     if (this.router.url === '/add-post') {
+  mapClicked($event: any) {
+    if (this.router.url === '/add-post') {
      this.markers.push({
        lat: $event.coords.lat,
        lng: $event.coords.lng
@@ -83,22 +81,19 @@ constructor(
        lat: $event.coords.lat,
        lng: $event.coords.lng
      };
-    //  this.stateService.sendGeo(this.newMarker);
      this.goWritePost();
    }
    }
 
-    markerDragEnd(m: marker, $event: MouseEvent) {
-      console.log('dragEnd', m, $event);
+  markerDragEnd(m: marker, $event: MouseEvent) {
+    console.log('dragEnd', m, $event);
     }
 
-    goWritePost() {
-      this.router.navigate(['/add-post/write-post']);
+  goWritePost() {
+    this.router.navigate(['/add-post/write-post']);
     }
 
 }
-
-
 
 interface marker {
   lat: number;

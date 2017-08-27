@@ -19,7 +19,6 @@ export class PlaceDetailsComponent {
 
   private subscription: any;
 
-
   constructor(
       private route: ActivatedRoute,
       private location: Location,

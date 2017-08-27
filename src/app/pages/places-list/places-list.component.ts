@@ -29,7 +29,6 @@ this.postService.getAllPosts()
      },
      () => {}
   );
-
     }
 
   goBack() {

@@ -2,7 +2,6 @@ import { Component, Output }        from '@angular/core';
 import { ActivatedRoute }           from '@angular/router';
 import { CommonModule }             from '@angular/common';
 import { Location }                 from '@angular/common';
-;
 
 
 

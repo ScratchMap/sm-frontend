@@ -21,9 +21,7 @@ geo: object;
   constructor (
      private http: Http,
      private userService: UserService,
-
     ) {
-
   }
 
   getAllPosts() {

@@ -37,10 +37,6 @@ export class WritePostComponent {
       header: new FormControl('', Validators.compose([ ])),
       body: new FormControl('', Validators.compose([ ]))
       });
-    console.log('форма поста', this.postForm)
-
-
-
   }
 
 
@@ -48,7 +44,6 @@ export class WritePostComponent {
     this.location.back();
   }
   submitForm() {
-    console.log(this.newMarker);
     this.postData = {
       post:
     {
@@ -58,7 +53,6 @@ export class WritePostComponent {
       },
       geo: this.stateService.newMarker}
     };
-    console.log('postdata:!!!!!!!!!!!', this.postData);
     this.postService.sendPostData(this.postData)
       .subscribe(
         (response) => console.log(response),

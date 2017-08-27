@@ -9,9 +9,6 @@ import { Observable }               from 'rxjs/Observable';
 
 
 
-
-
-
 @Component({
   selector: 'user',
   templateUrl: './user.component.html',
