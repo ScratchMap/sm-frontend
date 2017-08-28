@@ -1,4 +1,6 @@
-import { Component }                  from '@angular/core';
+import { Component }                      from '@angular/core';
+import { StateService }                   from './services/state.service';
+import { UserService }                    from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,14 @@ import { Component }                  from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Hello, World!';
+          constructor(
+              private stateService: StateService,
+              private userService: UserService
+            ) {
+            if (userService.token) {
+              this.stateService.sendMessage(true);
+            }
+          }
+
+
 }

@@ -1,0 +1,31 @@
+<div id=container>
+  {{newMarker | json}} +++++ {{geo$ | async}}
+<form [formGroup]="postForm" novalidate="true">
+  <div class="form-group">
+    <label for="header">Enter post title:</label>
+    <input type="text"
+           class="form-control"
+           id="header"
+           formControlName="header">
+  </div>
+  <div class="form-group">
+    <label  for="body">Enter post text:</label>
+    <textarea [froalaEditor] type="text"
+           class="form-control"
+           id="body"
+           formControlName="body">
+    </textarea>
+  </div>
+  <button type="submit"
+          class="btn btn-primary"
+          (click)="submitForm()"
+           >Submit</button>
+</form>
+
+<div class="test-post">
+{{postForm.value.header}}
+
+<div [froalaView]="this.postForm.value.body"></div>
+<div> {{ postForm.value.body }}</div>
+</div>
+</div>
